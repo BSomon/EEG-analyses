@@ -5,6 +5,9 @@
 % number of trials in all conditions for frequecy and time-frequency data
 % analyses (If you do not know why this can be relevant, I deeply enourage
 % you to read Mike X. Cohen's book "Analyzing Neural Time-Series Data"). 
+% You can launch each part (Spectral analysis, ERSP analysis, and ITC analysis)
+% separately. Don't forget to launch however the first lines for the frequency
+% range, channels and trial equalization.
 % If you have any difficulty, contact me: bertille.somon@isae-supaero.fr
 
 % !!! If you wish to obtain the exact p-values (pcond_ex, pinter_ex, pgroup_ex),
