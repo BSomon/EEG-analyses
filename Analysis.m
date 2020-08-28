@@ -174,8 +174,8 @@ Times = ('Time range to display topographies? (as a vector [min max in ms])');
 
 [~,idxt1] = closest(ersptimes,min(Times));
 [~,idxt2] = closest(ersptimes,max(Times));
-[~,idxf1] = closest(erspfreqs,min(Freq));
-[~,idxf2] = closest(erspfreqs,max(Freq));
+[~,idxf1] = closest(erspfreqs,min(Freqs));
+[~,idxf2] = closest(erspfreqs,max(Freqs));
 for index = 1:length(erspdatabln(:))
 	erspdatabln{index} = mean(mean(erspdatabln{index}(idxf1:idxf2,idxt1:idxt2,:,:),1),2);
 	erspdatabln{index} = reshape(erspdatabln{index}, [1 size(erspdatabln{index},3) size(erspdatabln{index},4) ]);
