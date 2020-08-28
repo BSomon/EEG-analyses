@@ -26,7 +26,7 @@ FreqRange = input('What frequency range od you wish to analyze?');
 s = RandStream('mlfg6331_64');
 singletrials = 'on';
 
-STUDY = pop_specparams(STUDY, 'freqrange', [0 40], 'plotgroups', 'together',...
+STUDY = pop_specparams(STUDY, 'freqrange', FreqRange, 'plotgroups', 'together',...
 	'plotconditions', 'together', 'subtractsubjectmean', 'on', 'averagechan', 'on');
 
 [~, datainit] = std_readdata(STUDY, ALLEEG, 'datatype', 'spec',...
@@ -78,7 +78,7 @@ if size(specdata, 2) > 1
 	specdata = cellfun(@(x)squeeze(mean(x,2)), specdata, 'UniformOutput', false);
 end
 
-STUDY = pop_specparams(STUDY, 'freqrange', [0 40], 'plotgroups', 'together',...
+STUDY = pop_specparams(STUDY, 'freqrange', FreqRange, 'plotgroups', 'together',...
 	'plotconditions', 'together', 'subtractsubjectmean', 'on', 'averagechan', 'on');
 
 %If you want the exact p-values
@@ -174,8 +174,8 @@ Times = ('Time range to display topographies? (as a vector [min max in ms])');
 
 [~,idxt1] = closest(ersptimes,min(Times));
 [~,idxt2] = closest(ersptimes,max(Times));
-[~,idxf1] = closest(erspfreq,min(Freq));
-[~,idxf2] = closest(erspfreq,max(Freq));
+[~,idxf1] = closest(erspfreqs,min(Freq));
+[~,idxf2] = closest(erspfreqs,max(Freq));
 for index = 1:length(erspdatabln(:))
 	erspdatabln{index} = mean(mean(erspdatabln{index}(idxf1:idxf2,idxt1:idxt2,:,:),1),2);
 	erspdatabln{index} = reshape(erspdatabln{index}, [1 size(erspdatabln{index},3) size(erspdatabln{index},4) ]);
