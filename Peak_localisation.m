@@ -1,3 +1,5 @@
+%Small modifications of the Peak_localisation function from the ERPLAB toolbox
+
 % PURPOSE: subroutine for pop_geterpvalues.m
 %          gets local peak measurements
 %
