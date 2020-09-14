@@ -1,3 +1,18 @@
+%Main function associated to the individual alpha frequency definition
+%(Peak_IAF_fin)
+%Inputs:	- EEG: an EEGLAB EEG structure containing at least the srate, data
+%				and chanlocs (even if empty) fields.
+%			- tIAF: the time period over which you want to compute the
+%				individual alpha frequency measure - at least 60 seconds is
+%				ideal
+%Outputs:	- EEG: an EEGLAB EEG structure with 3 new fields containing the
+%				frequency bands for theta alpha and beta based on the IAF
+%				definition
+%			- vFreq: a vector containing the frequency bands limits for
+%			thetas, alpha and beta concatenated over lines
+
+% 14/09/20 -- B.S.
+
 function [EEG, vFreq] = EEG_IAF(EEG, tIAF);
 IAFt = [];
 sf = EEG.srate;
