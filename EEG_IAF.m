@@ -25,6 +25,12 @@ else
 	channels = {EEG.chanlocs(:).labels};
 end
 
+% If no duration is defined, uses the length of the dataset
+if isempty(tIAF)
+	tIAF = EEG.xmax;
+end
+	
+
 if size(EEGdata,2)<(tIAF*sf)
 	disp(['You are not providing enough data. Your dataset must be at least '...
 		num2str(tIAF*sf), ' points long.']);
