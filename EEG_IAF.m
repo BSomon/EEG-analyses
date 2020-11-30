@@ -25,18 +25,12 @@ else
 	channels = {EEG.chanlocs(:).labels};
 end
 
-% If no duration is defined, uses the length of the dataset
-if isempty(tIAF)
-	tIAF = EEG.xmax;
-end
-	
-
 if size(EEGdata,2)<(tIAF*sf)
 	disp(['You are not providing enough data. Your dataset must be at least '...
 		num2str(tIAF*sf), ' points long.']);
 	return;
 else
-		IAFt = cat(1, IAFt, Peak_IAF_fin(EEGdata(:, tIAF*sf,:),sf/NFFT,sf,channels));
+		IAFt = cat(1, IAFt, Peak_IAF_fin(EEGdata(:, 1:tIAF*sf,:),sf/NFFT,sf,channels));
 		iIAF = round(nanmean(IAFt));
 end
 EEG.vTheta = [iIAF-6, iIAF-2]; % Individual theta frequency band
