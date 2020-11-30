@@ -7,7 +7,7 @@ function IAF =Peak_IAF_fin(EEG,nFreq,sf,label)
 %parietal or occipital electrodes.
 % input :	- EEG: a matrix of the shape channels x time points x trials
 % 			- nFreq: number of points over which the PSD estimate is
-% 			calculated. Default: 2-second window (2*sf data points)
+% 			calculated. Default: 2-second window
 % 			- sf: EEG data sampling frequency
 % 			- label: a cell containing the labels of the electrodes in the
 % 			dataset. Default is based on Biosemi 64
@@ -16,7 +16,7 @@ function IAF =Peak_IAF_fin(EEG,nFreq,sf,label)
 % 14/09/20 -- B.S.
 [nCh, nSa, nTr]=size(EEG);
 if isempty(nFreq)
-	nFreq = 2*sf;
+	nFreq = 1/2; 
 end
 %Gets the electrodes labels in case it is not provided, according to the
 %default Biosemi electrode montage
